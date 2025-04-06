@@ -23,10 +23,6 @@ class Todo(db.Model):
     def __repr__(self):
         return f"{self.sno} - {self.title}"
 
-@app.route("/")
-def hello_world():
-    return "<p>Hello, World!</p>"
-
 @app.route("/",methods=['POST','GET'])
 def todofn():
     if request.method=='POST':
