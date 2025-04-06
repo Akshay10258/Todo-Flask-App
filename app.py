@@ -27,7 +27,7 @@ class Todo(db.Model):
 def hello_world():
     return "<p>Hello, World!</p>"
 
-@app.route("/todo",methods=['POST','GET'])
+@app.route("/",methods=['POST','GET'])
 def todofn():
     if request.method=='POST':
         print("this is the req",request)
@@ -85,7 +85,7 @@ def delete(sno):
         
     db.session.delete(todo)
     db.session.commit()
-    return redirect('/todo')
+    return redirect('/')
 
 @app.route("/hello")
 def hello_page():
