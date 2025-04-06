@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}
+    {% endblock title %}</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+        }
+        
+        .navbar {
+            background-color: #333;
+            color: white;
+            padding: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .navbar h1 {
+            font-size: 24px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .add-todo {
+            display: flex;
+            margin-bottom: 20px;
+            gap: 10px;
+        }
+        
+        .add-todo input {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        
+        .add-todo textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            margin-top: 10px;
+            resize: vertical;
+            min-height: 60px;
+        }
+        
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        
+        button:hover {
+            background-color: #45a049;
+        }
+        
+        .todo-list {
+            list-style-type: none;
+        }
+        
+        .todo-item {
+            background-color: #f9f9f9;
+            padding: 16px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        
+        .todo-content {
+            flex: 1;
+        }
+        
+        .todo-title {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        
+        .todo-description {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 5px;
+        }
+        
+        .edit-btn {
+            background-color: #2196F3;
+        }
+        
+        .delete-btn {
+            background-color: #f44336;
+        }
+        
+        .edit-btn:hover {
+            background-color: #0b7dda;
+        }
+        
+        .delete-btn:hover {
+            background-color: #d32f2f;
+        }
+        
+        .completed {
+            text-decoration: line-through;
+            opacity: 0.7;
+        }
+        
+        .toggle-btn {
+            background-color: transparent;
+            color: #333;
+            border: 1px solid #ddd;
+            margin-right: 5px;
+        }
+        
+        .toggle-btn:hover {
+            background-color: #f1f1f1;
+        }
+
+        button:disabled {
+        background-color: #ccc;
+        color: #666;
+        cursor: not-allowed;
+        opacity: 0.7;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <nav class="navbar">
+        <h1>Todo App</h1>
+        <div>
+            <span id="date"></span>
+            <span id="time"></span>
+        </div>
+    </nav>
+    
+    {% block body %}
+        
+    {% endblock body %}
+</body>
+</html>
