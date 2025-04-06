@@ -1,4 +1,4 @@
-from flask import Flask,render_template,request,jsonify,redirect
+from flask import Flask,render_template,request,jsonify,redirect,send_from_directory
 # Import sqlalchemy
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
@@ -22,7 +22,11 @@ class Todo(db.Model):
 
     def __repr__(self):
         return f"{self.sno} - {self.title}"
-
+    
+@app.route('/service-worker.js')
+def sw():
+    return send_from_directory('.', 'service-worker.js', mimetype='application/javascript')\
+    
 @app.route("/",methods=['POST','GET'])
 def todofn():
     if request.method=='POST':
@@ -44,7 +48,6 @@ def todofn():
 
 def refresh_data():
     alltodo = Todo.query.all()
-
     return render_template('index.html',allTodo = alltodo)
 
 @app.route("/update",methods=['POST','GET'])

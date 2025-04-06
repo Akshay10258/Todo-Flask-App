@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todo App</title>
+    <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}" />
+    <meta name="theme-color" content="#0f4a73" />
     <style>
         * {
             margin: 0;
@@ -295,6 +297,16 @@
     </div>
 
     <script src="{{ url_for('static', filename='test.js') }}"></script>
+
+    <script>
+        if ("serviceWorker" in navigator) {
+            window.addEventListener("load", () => {
+            navigator.serviceWorker.register("/service-worker.js")
+            .then(reg => console.log("Service worker registered:", reg))
+            .catch(err => console.log("SW registration failed:", err));
+        });
+        }
+    </script>
     <script>
         // Set up date and time in navbar
         function updateDateTime() {
