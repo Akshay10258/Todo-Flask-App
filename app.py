@@ -6,7 +6,9 @@ import os
 app = Flask(__name__)
 
 # configure the SQLite database, relative to the app instance folder
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///project.db"
+# app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///project.db"
+
+app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DATABASE_URL", "sqlite:///project.db")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']= False
 # basedir = os.path.abspath(os.path.dirname(__file__))
 # app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///" + os.path.join(basedir, "project.db")
